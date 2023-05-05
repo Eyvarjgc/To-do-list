@@ -1,0 +1,62 @@
+{%extends 'base.html' %}
+{%load static%}
+
+{% comment %} {%block title%}
+Home page
+{%endblock%} {% endcomment %}
+
+
+{%block content%}
+
+<div class="row ">
+    <div class="col-md-5 col-sm-5">
+        <!-- <div class=" nav flex-column pnavbar pnavbar2">
+            {%for dia in dias%}
+                <a href="{%url 'tareas' dia.id %}"class="p-4"><i class="fi fi-rr-angle-small-down "></i>{{dia.name}}</a>
+            {%endfor%}
+        </div> -->
+        <div class="container-fluid  p-3  text-capitalize">
+            {%for task in tasks%}
+            <div class="d-flex flex-row align-content-start">
+                <p class="border rounded p-3">{{task.name}} 
+
+                    <a href="{%url 'delete' task.id%}" id="Deletecolor">
+                        <i class="fi fi-rr-trash "></i>
+                        
+                    </a>
+                    <a href="{%url 'coments' task.id%}">
+                        <i class="fi fi-rr-comment"></i>
+                    </a>
+                    <a href="{%url 'edit' task.id %} " id="editcolor">
+                        <i class="fi fi-rr-edit"></i>
+                    </a>
+
+                </p>
+                
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+    <div class="col-2 ">
+
+    </div>
+    <div class="col-md-5 col-sm-5 ">
+        <div class="col-md-12 col sm-12 p-4 d-flex flex-column">
+            <h1 class="justify-content-md-start ">{{comments.task}}</h1>
+            
+            {%for comments in comment%}
+                <div class="container m-2 p-0 border rounded bg-info-subtle">
+                    
+                <div class="d-flex flex-row gap-1 m-0 p-2 overflow-hidden ">
+                    <p class="h5 m-0 fw-bold">@{{comments.user|capfirst}}</p>
+                    <p class="fw-medium"> <small> {{comments.created|timesince}} Ago</small></p>
+                </div>
+                <p  class="m-0 px-2 h6">{{comments.task}}</p>
+                <p class="p-2 "class="fst-italic">{{comments.body}}</p>
+            </div>
+            
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{%endblock%}

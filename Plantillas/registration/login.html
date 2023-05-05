@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="row ">
+    <div class="col-md-6 col-sm-6 m-auto">
+        <div class="form-control ">
+            <form action="" method="post">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {%csrf_token%}
+                    <label class="form-label">Usuario</label>
+                    <input type="text" class="form-control" name="username" list="datalist" placeholder="Escriba o seleccione usuario">
+                   
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" name="password" list="datalist" placeholder="Escriba su contraseña">
+
+                    <input type="submit" class="btn btn-outline-success mt-3">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+ <!-- <datalist id='datalist'>
+                        <option value="{{user}}">
+                    </datalist> -->
+
+
+
+{%endblock%}

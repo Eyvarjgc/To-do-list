@@ -1,0 +1,48 @@
+a{text-decoration: none;}
+li{list-style: none;}
+.bg{
+    background-color: rgb(33, 118, 144);
+}
+.comentsbg{
+    background-color: rgb(33, 118, 144);
+    height: 100vh;
+}
+.ptodo{
+    color: white;
+
+    
+}
+/* NAV HEADER */
+.plink{
+    color: white;
+    transition: all 0.5s;
+    font-size: 20px;
+}
+.plink:hover{
+    margin-top: 10px;
+    border-bottom: 2px solid;
+    display: inline-flexbox;
+}
+/* diass */
+.pdays{
+    color: black;
+    transition: all 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.pdays:hover{
+    color: rgb(13, 6, 118);
+    margin: 20px;
+}
+
+/* form */
+/* .pform{
+    background-color: aqua;
+    color: blue;
+} */
+
+#Deletecolor{
+    color: rgb(217, 89, 89);
+}
+#editcolor{
+    color: rgb(176, 216, 137);
+}

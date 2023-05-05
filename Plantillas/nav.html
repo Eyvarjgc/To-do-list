@@ -1,0 +1,77 @@
+
+{%load static%}
+<nav>
+    <div class="row bg">
+        <!-- Navbar -->
+        <div class="navbar p-3 ">
+            <div class="container ">
+                <div class="col-sm-4 col-md-5 ">
+                    <div class="h2 ptodo">
+                        <i class="fi fi-ss-check"></i>
+                        To do list
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-md-5">
+                    <div class="container-fluid d-flex flex-row flex-wrap gap-4">
+                        <a href="{%url 'home'%}" class="nav-link plink">Todas las tareas</a>
+                        <a href="{%url 'addtask' %}" class=" nav-link plink">Nueva tarea</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-md-2 ">
+                    {%if request.user.is_authenticated%}
+                        <div class="nav-item  ">
+                            <div class="btn btn-light ">
+                                <a href="{%url 'logoutUser' %}" class="nav-link ">logout</a>
+                            </div>
+                        </div>
+                    {%else%}
+                    <div class="nav-item  ">
+                        <div class="btn btn-light ">
+                            <a href="{%url 'login'%}" class="nav-link ">Login</a>
+                        </div>
+                        <div class="btn btn-light ">
+                            <a href="{%url 'register'%}" class="nav-link ">Registrar</a>
+                        </div>
+                    </div>
+                    
+                    {%endif%}
+                </div>
+
+            </div>
+        </div>
+        <!-- navbar dias -->
+        <div class="row prow">
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="d-flex  p-4 justify-content-center flex-wrap">
+                        {%for dia in dias%}
+                            <a href="{%url 'tareas' dia.id %}"class="p-4 pdays"><i class="fi fi-rr-angle-small-down "></i>{{dia.name}}</a>
+                        {%endfor%}
+                    </div>
+                </div>
+                <nav class="navbar">
+                    
+                    <div class="container ">
+                        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        {%if listcount == 0%}
+                            <div class="lead h2">No hay ninguna tarea por realizar</div>
+                        {%elif listcount == 1%}
+                            <div class="lead h2"></div>
+                        {%else%}
+                            <div class="lead h2">{{listcount}} Tareas</div>
+                        {%endif%}
+                        <form action="{%url 'home'%}" method="get">
+                            <div class="d-flex gap-2">
+                                    <!-- <a class="links" href="{%url 'home' %}?q={{nombres.name}}">{{nombres.name}}</a> -->
+                                    <input type="text" placeholder="Buscar tareas" class="form-control" name="buscar">
+                                    <button type="submit" class="input btn btn-dark">Buscar</button>
+                            </div>
+                            </form>
+                    </div>
+                </nav>
+        </div>
+    </div>
+</nav>

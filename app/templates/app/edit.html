@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{%block content%}
+
+
+<div class="row ">
+    <div class="col-md-12 col-sm-12 bg-light text-center" style="height: 100vh;">
+        <div class="container-fluid  p-3  text-capitalize">
+            <div class="h4">Cambiar nombre de tarea</div>
+            <form method="post">
+                {%csrf_token%}
+                <input type="text" name="name" value="{{task.name}}"  class="text-center border rounded p-3 text-capitalize w-50" >
+            </form>
+            <input type="text" class="btn btn-success btn-sm mt-2" value="Guardar">
+        </div>
+    </div>
+    <div class="col-2 ">
+
+{%endblock%}

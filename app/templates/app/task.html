@@ -1,0 +1,28 @@
+{%extends 'base.html' %}
+{%block content%}
+
+<div class="row ">
+    <form method="POST">
+        {%csrf_token%}
+        {%for task in tasks%}
+        <div class="container-fluid lead p-2">
+            <div class="form-check d-flex justify-content-center gap-2">
+                <ul>
+                {%if task.checkout == True%}
+                <li>
+                    <input type="checkbox" class="form-check-input" id="check" value="clicked" name="c{{task.id}}"checked>{{task.name}}
+                </li>
+                {%else%}
+                <li>
+                    <input type="checkbox" class="form-check-input" id="check" value="clicked" name="c{{task.id}}">{{task.name}}
+                </li>
+                {%endif%}
+                </ul>
+            </div>
+        </div>
+        {%endfor%}
+        <input type="submit" value="Guardar" name="save" class="btn btn-secondary w-100">
+    </form>
+</div> 
+
+{%endblock%}

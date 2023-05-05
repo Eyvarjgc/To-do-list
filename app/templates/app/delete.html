@@ -1,0 +1,24 @@
+{%extends 'base.html' %}
+
+{%block content%}
+
+<div class="row">
+    <div class="col-6 p-4  text-center">
+        <div class="container-fluid">
+            <h4>¿Estas seguro de eliminar esta tarea?</h4>
+            <h2 class="p-3">{{taskk.name}}</h2>
+            <div class="row ">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    <div class="d-flex gap-4 justify-content-center">
+                        <a href="{%url 'home' %}" class="btn btn-dark">Volver atras</a>
+                        <input type="submit" class="btn btn-danger" value="Confirmar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
