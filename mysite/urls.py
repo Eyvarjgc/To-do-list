@@ -21,5 +21,6 @@ from app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('app.urls')),
-    path('accounts/',include('django.contrib.auth.urls'),name="login")
+    path('accounts/',include('django.contrib.auth.urls'),name="login"),
+    path('Task/',include('api.urls'))
 ]
